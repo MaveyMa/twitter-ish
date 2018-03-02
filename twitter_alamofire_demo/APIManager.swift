@@ -51,10 +51,11 @@ class APIManager: SessionManager {
   }
   
   func logout() {
+    // 1. Clear current user
+    User.current = nil
+    // 2. Deauthorize OAuth tokens
     clearCredentials()
-    
-    // TODO: Clear current user by setting it to nil
-    
+    // 3. Post logout notification
     NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
   }
   
@@ -85,16 +86,19 @@ class APIManager: SessionManager {
       let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
         Tweet(dictionary: dictionary)
       })
-      
+
       completion(tweets, nil)
       return
     }
     
+    // 1. Create an Alamofire GET Request that returns a JSON response
     request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
       .validate()
       .responseJSON { (response) in
+        // 2. Verify success
         switch response.result {
         case .failure(let error):
+          //There was a problem
           completion(nil, error)
           return
         case .success:
