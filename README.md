@@ -2,9 +2,8 @@
 
 **Twitter-ish** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
-thurs -
 ## User Stories
 
 The following **required** functionality is completed:
