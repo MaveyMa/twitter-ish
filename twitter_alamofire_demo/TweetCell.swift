@@ -7,26 +7,40 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetCell: UITableViewCell {
-    
-    @IBOutlet weak var tweetTextLabel: UILabel!
-    
-    var tweet: Tweet! {
-        didSet {
-            tweetTextLabel.text = tweet.text
-        }
+  
+  @IBOutlet weak var profilePicImageView: UIImageView!
+  @IBOutlet weak var authorNameLabel: UILabel!
+  @IBOutlet weak var twitterHandleLabel: UILabel!
+  @IBOutlet weak var timeStampLabel: UILabel!
+  @IBOutlet weak var replyCountLabel: UILabel!
+  @IBOutlet weak var retweetCountLabel: UILabel!
+  @IBOutlet weak var favoriteCountLabel: UILabel!
+  @IBOutlet weak var tweetTextLabel: UILabel!
+  var tweet: Tweet! {
+    didSet {
+      tweetTextLabel.text = tweet.text
+      favoriteCountLabel.text = String(describing: tweet.favoriteCount)
+      retweetCountLabel.text = String(describing: tweet.retweetCount)
+      authorNameLabel.text = tweet.user.name
+      twitterHandleLabel.text = "@" + tweet.user.screenName!
+      timeStampLabel.text = " · " + tweet.createdAtString
+      
+      profilePicImageView.af_setImage(withURL: URL(string: tweet.user.profilePicturePathString!)!)
     }
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+    // Configure the view for the selected state
+  }
+  
 }

@@ -9,53 +9,53 @@
 import UIKit
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  var tweets: [Tweet] = []
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    var tweets: [Tweet] = []
+    tableView.dataSource = self
+    tableView.delegate = self
     
-    @IBOutlet weak var tableView: UITableView!
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-        
-        APIManager.shared.getHomeTimeLine { (tweets, error) in
-            if let tweets = tweets {
-                self.tweets = tweets
-                self.tableView.reloadData()
-            } else if let error = error {
-                print("Error getting home timeline: " + error.localizedDescription)
-            }
-        }
+    APIManager.shared.getHomeTimeLine { (tweets, error) in
+      if let tweets = tweets {
+        self.tweets = tweets
+        self.tableView.reloadData()
+      } else if let error = error {
+        print("Error getting home timeline: " + error.localizedDescription)
+      }
     }
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tweets.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets.count
-    }
+    cell.tweet = tweets[indexPath.row]
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        
-        cell.tweet = tweets[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @IBAction func didTapLogout(_ sender: Any) {
-        APIManager.shared.logout()
-    }
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  
+  @IBAction func didTapLogout(_ sender: Any) {
+    APIManager.shared.logout()
+  }
 }
