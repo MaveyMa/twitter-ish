@@ -29,8 +29,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     tableView.insertSubview(refreshControl, at: 0)
     
     self.tableView.reloadData()
-    get20PostsFromParse()
-    
+    get20PostsFromParse()    
   }
   
   @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
