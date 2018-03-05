@@ -42,7 +42,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://image.ibb.co/gqOzoS/twitter_Demo2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-[Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.](https://image.ibb.co/iVtw2n/twitter_Rotate2.gif')
+[Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.](https://image.ibb.co/iVtw2n/twitter_Rotate2.gif)
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
