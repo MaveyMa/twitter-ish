@@ -31,15 +31,15 @@ class TweetCell: UITableViewCell {
       tweetTextLabel.text = tweet.text
       replyCountLabel.text = "" //TODO Deprecated. https://www.quora.com/Is-it-possible-to-get-a-count-of-the-replies-and-retweets-for-a-particular-tweet
       favoriteCountLabel.text = String(describing: tweet.favoriteCount)
-      if tweet.favorited! {
-        let redTapImage = UIImage(named: "favor-icon-red")
-        favoriteButton.setImage(redTapImage, for: UIControlState.normal)
-      }
+//      if tweet.favorited! {
+//        let redTapImage = UIImage(named: "favor-icon-red")
+//        favoriteButton.setImage(redTapImage, for: UIControlState.normal)
+//      }
       retweetCountLabel.text = String(describing: tweet.retweetCount)
-      if tweet.retweeted {
-        let greenTapImage = UIImage(named: "retweet-icon-green")
-        retweetButton.setImage(greenTapImage, for: UIControlState.normal)
-      }
+//      if tweet.retweeted {
+//        let greenTapImage = UIImage(named: "retweet-icon-green")
+//        retweetButton.setImage(greenTapImage, for: UIControlState.normal)
+//      }
       authorNameLabel.text = tweet.user.name
       twitterHandleLabel.text = "@" + tweet.user.screenName!
       timeStampLabel.text = " · " + tweet.createdAtString
