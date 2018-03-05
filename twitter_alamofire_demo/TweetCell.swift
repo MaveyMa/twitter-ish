@@ -28,6 +28,8 @@ class TweetCell: UITableViewCell {
       twitterHandleLabel.text = "@" + tweet.user.screenName!
       timeStampLabel.text = " · " + tweet.createdAtString
       
+      profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height/2
+      
       profilePicImageView.af_setImage(withURL: URL(string: tweet.user.profilePicturePathString!)!)
     }
   }
