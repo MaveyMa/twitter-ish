@@ -56,18 +56,36 @@ class TweetCell: UITableViewCell {
   @IBAction func didTapFavorite(_ sender: Any) {
     // Update the favorite icon and count in local tweet model
     tweet.favorited = !tweet.favorited!
+    
     if tweet.favorited! {
       let redTapImage = UIImage(named: "favor-icon-red")
       favoriteButton.setImage(redTapImage, for: UIControlState.normal)
       tweet.favoriteCount += 1
+      
+      // Send a POST request to the POST favorites/create endpoint
+      APIManager.shared.favorite(tweet) { (tweet, error) in
+        if let  error = error {
+          print("Error favoriting tweet: \(error.localizedDescription)")
+        } else if let tweet = tweet {
+          print("Successfully favorited the following Tweet: \n\(tweet.text)")
+        }
+      }
     } else {
       let greyTapImage = UIImage(named: "favor-icon")
       favoriteButton.setImage(greyTapImage, for: UIControlState.normal)
       tweet.favoriteCount -= 1
+      
+      // Send a POST request to the POST favorites/destroy endpoint
+      APIManager.shared.unfavorite(tweet) { (tweet, error) in
+        if let  error = error {
+          print("Error unfavoriting tweet: \(error.localizedDescription)")
+        } else if let tweet = tweet {
+          print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+        }
+      }
     }
     // Update cell UI
     refreshData()
-    // TODO: Send a POST request to the POST favorites/create endpoint
   }
   
   @IBAction func didTapRetweet(_ sender: Any) {
@@ -77,13 +95,32 @@ class TweetCell: UITableViewCell {
       let greenTapImage = UIImage(named: "retweet-icon-green")
       retweetButton.setImage(greenTapImage, for: UIControlState.normal)
       tweet.retweetCount += 1
+      
+      // Send a POST request to the POST statuses/retweet/:id.json endpoint
+      APIManager.shared.retweet(tweet) { (tweet, error) in
+        if let  error = error {
+          print("Error retweeting tweet: \(error.localizedDescription)")
+        } else if let tweet = tweet {
+          print("Successfully retweeting the following Tweet: \n\(tweet.text)")
+        }
+      }
     } else {
       let greyTapImage = UIImage(named: "retweet-icon")
       retweetButton.setImage(greyTapImage, for: UIControlState.normal)
       tweet.retweetCount -= 1
+      
+      // Send a POST request to the POST statuses/unretweet/:id.json endpoint
+      APIManager.shared.unretweet(tweet) { (tweet, error) in
+        if let  error = error {
+          print("Error unretweeting tweet: \(error.localizedDescription)")
+        } else if let tweet = tweet {
+          print("Successfully unretweeting the following Tweet: \n\(tweet.text)")
+        }
+      }
     }
     // Update cell UI
     refreshData()
+    
   }
   func refreshData() {
     favoriteCountLabel.text = String(describing: tweet.favoriteCount)
