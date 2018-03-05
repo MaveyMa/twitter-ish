@@ -15,13 +15,21 @@ class TweetCell: UITableViewCell {
   @IBOutlet weak var authorNameLabel: UILabel!
   @IBOutlet weak var twitterHandleLabel: UILabel!
   @IBOutlet weak var timeStampLabel: UILabel!
+  
   @IBOutlet weak var replyCountLabel: UILabel!
   @IBOutlet weak var retweetCountLabel: UILabel!
   @IBOutlet weak var favoriteCountLabel: UILabel!
+  
+  @IBOutlet weak var replyButton: UIButton!
+  @IBOutlet weak var retweetButton: UIButton!
+  @IBOutlet weak var favoriteButton: UIButton!
+  
   @IBOutlet weak var tweetTextLabel: UILabel!
+  
   var tweet: Tweet! {
     didSet {
       tweetTextLabel.text = tweet.text
+      replyCountLabel.text = "" //TODO Deprecated. https://www.quora.com/Is-it-possible-to-get-a-count-of-the-replies-and-retweets-for-a-particular-tweet
       favoriteCountLabel.text = String(describing: tweet.favoriteCount)
       retweetCountLabel.text = String(describing: tweet.retweetCount)
       authorNameLabel.text = tweet.user.name
@@ -44,5 +52,43 @@ class TweetCell: UITableViewCell {
     
     // Configure the view for the selected state
   }
+  
+  @IBAction func didTapFavorite(_ sender: Any) {
+    // Update the favorite icon and count in local tweet model
+    tweet.favorited = !tweet.favorited!
+    if tweet.favorited! {
+      let redTapImage = UIImage(named: "favor-icon-red")
+      favoriteButton.setImage(redTapImage, for: UIControlState.normal)
+      tweet.favoriteCount += 1
+    } else {
+      let greyTapImage = UIImage(named: "favor-icon")
+      favoriteButton.setImage(greyTapImage, for: UIControlState.normal)
+      tweet.favoriteCount -= 1
+    }
+    // Update cell UI
+    refreshData()
+    // TODO: Send a POST request to the POST favorites/create endpoint
+  }
+  
+  @IBAction func didTapRetweet(_ sender: Any) {
+    // Update the retweet icon and count in local tweet model
+    tweet.retweeted = !tweet.retweeted
+    if tweet.retweeted {
+      let greenTapImage = UIImage(named: "retweet-icon-green")
+      retweetButton.setImage(greenTapImage, for: UIControlState.normal)
+      tweet.retweetCount += 1
+    } else {
+      let greyTapImage = UIImage(named: "retweet-icon")
+      retweetButton.setImage(greyTapImage, for: UIControlState.normal)
+      tweet.retweetCount -= 1
+    }
+    // Update cell UI
+    refreshData()
+  }
+  func refreshData() {
+    favoriteCountLabel.text = String(describing: tweet.favoriteCount)
+    retweetCountLabel.text = String(describing: tweet.retweetCount)
+  }
+  
   
 }
