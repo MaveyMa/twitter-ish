@@ -20,7 +20,7 @@ The following **required** functionality is completed:
 The following **stretch** features are implemented:
 
 - [x] The current signed in user will be persisted across restarts. (1pt)
-- [ ] Each tweet should display the relative timestamp for each tweet "8m", "7h". (1pt)
+- [ ] Each tweet should display the relative [timestamp](https://github.com/MatthewYork/DateTools#time-ago) for each tweet "8m", "7h". (1pt)
 - [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. (1pt)
 - [ ] Links in tweets are clickable. (2pts)
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client. (2pts)
@@ -56,6 +56,9 @@ Describe any challenges encountered while building the app.
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [Twitter API](https://hackmd.io/s/ByYNOLvV-) - favoriting and retweeting
+- [Twitter: OAuth 1.0a Authentication with Alamofire and OAuthSwift](https://hackmd.io/s/Sk94N_-6e) - User can sign in using OAuth login flow
+- [Twitter feed](https://hackmd.io/s/SkWrSY4QZ) - User can view last 20 tweets from their home timeline.
 
 ## License
 
