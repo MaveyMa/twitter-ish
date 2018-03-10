@@ -113,9 +113,7 @@ class APIManager: SessionManager {
           UserDefaults.standard.set(data, forKey: "hometimeline_tweets")
           UserDefaults.standard.synchronize()
           
-          let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
-            Tweet(dictionary: dictionary)
-          })
+          let tweets = Tweet.tweets(with: tweetDictionaries)
           completion(tweets, nil)
         }
     }

@@ -21,7 +21,10 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
-# twitter_alamofire_demo.xcworkspace
+twitter_alamofire_demo.xcworkspace
+
+## API Keys
+Keys.plist
 
 ## Obj-C/Swift specific
 *.hmap
