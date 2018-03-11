@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if User.current != nil {
       // Load and show the home view controller
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let navigationViewController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+      let navigationViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticatedTabBarController")
       self.window?.rootViewController = navigationViewController
     }
     
