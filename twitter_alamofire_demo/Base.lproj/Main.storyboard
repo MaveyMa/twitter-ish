@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,14 +49,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="RFK-Vv-pWW" kind="presentation" identifier="loginSegue" id="bSJ-ea-DmV"/>
+                        <segue destination="bB0-x9-7pT" kind="presentation" identifier="loginSegue" id="bSJ-ea-DmV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Home Timeline-->
+        <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="5YO-Vh-39k" customClass="TimelineViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ctl-bI-Eag">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="194" id="U1g-kw-izy" customClass="TweetCell" customModule="twitter_alamofire_demo" customModuleProvider="target">
@@ -205,7 +207,7 @@
                             <constraint firstItem="Ctl-bI-Eag" firstAttribute="top" secondItem="JNb-nQ-JaL" secondAttribute="top" id="xi0-Hu-USu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="9Zi-uW-GTS">
+                    <navigationItem key="navigationItem" title="Home" id="9Zi-uW-GTS">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
                             <connections>
                                 <action selector="didTapLogout:" destination="5YO-Vh-39k" id="fM7-h5-mq1"/>
@@ -218,12 +220,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+            <point key="canvasLocation" x="780" y="1532"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
+        <scene sceneID="TLl-eC-S12">
+            <objects>
+                <viewController id="5Eu-fP-qnC" customClass="ProfileViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hwl-Ff-8Ty"/>
+                        <viewControllerLayoutGuide type="bottom" id="MG0-yg-qaQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DvP-Ft-Hgd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="BackdropImageView" translatesAutoresizingMaskIntoConstraints="NO" id="fUJ-1O-bVz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                <color key="backgroundColor" red="1" green="0.90004761448295156" blue="0.18427719723745306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aaw-gD-b5o">
+                                <rect key="frame" x="16" y="139.5" width="55" height="55"/>
+                                <color key="backgroundColor" red="1" green="0.60220687567880393" blue="0.61727788723529398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="0wp-CS-pff"/>
+                                    <constraint firstAttribute="height" constant="55" id="Gd8-rR-fbZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fUJ-1O-bVz" firstAttribute="height" secondItem="DvP-Ft-Hgd" secondAttribute="height" multiplier="1:4" id="EgP-jx-toh"/>
+                            <constraint firstAttribute="trailing" secondItem="fUJ-1O-bVz" secondAttribute="trailing" id="OY2-gn-iI0"/>
+                            <constraint firstItem="Aaw-gD-b5o" firstAttribute="centerY" secondItem="fUJ-1O-bVz" secondAttribute="bottom" id="Usf-b2-kKi"/>
+                            <constraint firstItem="Aaw-gD-b5o" firstAttribute="leading" secondItem="DvP-Ft-Hgd" secondAttribute="leading" constant="16" id="eIk-Se-efj"/>
+                            <constraint firstItem="fUJ-1O-bVz" firstAttribute="leading" secondItem="DvP-Ft-Hgd" secondAttribute="leading" id="kgH-O7-hVy"/>
+                            <constraint firstItem="fUJ-1O-bVz" firstAttribute="top" secondItem="DvP-Ft-Hgd" secondAttribute="top" id="lSn-JF-bmb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="rmT-8t-Esp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Tk-tU-LNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648.8" y="1530.5847076461771"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="WXZ-z8-8LI">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="RFK-Vv-pWW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="1vC-u5-vXk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="COb-xK-t9O">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -236,12 +280,51 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-jg-Lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="780" y="804"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cZ2-N7-iSc">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bB0-x9-7pT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hta-5b-dAo">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RFK-Vv-pWW" kind="relationship" relationship="viewControllers" id="dCj-mu-VAp"/>
+                        <segue destination="PSY-h4-lPN" kind="relationship" relationship="viewControllers" id="Nuw-PP-QSJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SE9-xU-2R1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="36"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="lMS-I7-ZSK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PSY-h4-lPN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-Icon" id="c93-HY-axf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oqW-eS-4gt">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Eu-fP-qnC" kind="relationship" relationship="rootViewController" id="ke0-YG-3v3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gy8-6y-aFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="804"/>
         </scene>
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="home-icon" width="30" height="30"/>
+        <image name="profile-Icon" width="26" height="26"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
     </resources>
