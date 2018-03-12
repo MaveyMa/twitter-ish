@@ -33,7 +33,7 @@ class TweetCell: UITableViewCell {
       
       authorNameLabel.text = tweet.user.name
       twitterHandleLabel.text = "@" + tweet.user.screenName!
-      timeStampLabel.text = " · " + tweet.createdAtString
+      timeStampLabel.text = " · " + tweet.getDate()
       
       replyCountLabel.text = "" //TODO Deprecated. https://www.quora.com/Is-it-possible-to-get-a-count-of-the-replies-and-retweets-for-a-particular-tweet
       retweetCountLabel.text = String(describing: tweet.retweetCount)

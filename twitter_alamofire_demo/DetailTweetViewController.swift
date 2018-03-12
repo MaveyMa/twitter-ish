@@ -30,7 +30,7 @@ class DetailTweetViewController: UIViewController {
       authorLabel.text = tweet.user.name
       handleLabel.text = "@" + tweet.user.screenName!
       tweetLabel.text = tweet.text
-      timeLabel.text = tweet.createdAtString
+      timeLabel.text = tweet.getDate() + ", " + tweet.getTime()
       retweetCount.text = String(tweet.retweetCount)
       if tweet.retweetCount == 1 {
         retweetLabel.text = "Retweet"

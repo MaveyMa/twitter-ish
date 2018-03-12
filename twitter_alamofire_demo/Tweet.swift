@@ -61,8 +61,22 @@ class Tweet {
     formatter.dateStyle = .short //Specifies a short style, such as “11/23/37”
     formatter.timeStyle = .none
     // Convert Date to String
-    createdAtString = formatter.string(from: date)
-    return createdAtString
+    let createdAtDateString = formatter.string(from: date)
+    return createdAtDateString
+  }
+  
+  func getTime() -> String {
+    let formatter = DateFormatter()
+    // Configure the input format to parse the date string
+    formatter.dateFormat = "E MMM d HH:mm:ss Z y"
+    // Convert String to Date
+    let date = formatter.date(from: createdAtString)!
+    // Configure output format
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
+    // Convert Date to String
+    let createdAtTimeString = formatter.string(from: date)
+    return createdAtTimeString
   }
   
   // Factory method that returns Tweets when initialized with an array of Tweet Dictionaries
