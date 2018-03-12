@@ -13,8 +13,9 @@
 		DB51F8D620492B65005F5F72 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB51F8D520492B65005F5F72 /* Keys.plist */; };
 		DBBDDCE6205617730059C7CC /* DetailTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDDCE5205617730059C7CC /* DetailTweetViewController.swift */; };
 		DBDBBE1F2055C199008C3F13 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBBE1E2055C199008C3F13 /* ProfileViewController.swift */; };
+		DBE501922056684E00A9E6D0 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE501912056684E00A9E6D0 /* ComposeViewController.swift */; };
+		DBE5019420566A2B00A9E6D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE5019320566A2B00A9E6D0 /* Main.storyboard */; };
 		ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1AFD301E942B2500FD4B90 /* AppDelegate.swift */; };
-		ED1AFD361E942B2500FD4B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD341E942B2500FD4B90 /* Main.storyboard */; };
 		ED1AFD381E942B2500FD4B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD371E942B2500FD4B90 /* Assets.xcassets */; };
 		ED1AFD3B1E942B2500FD4B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1AFD391E942B2500FD4B90 /* LaunchScreen.storyboard */; };
 		ED1AFD461E942B2500FD4B90 /* twitter_alamofire_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1AFD451E942B2500FD4B90 /* twitter_alamofire_demoTests.swift */; };
@@ -56,9 +57,10 @@
 		DB51F8D520492B65005F5F72 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		DBBDDCE5205617730059C7CC /* DetailTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTweetViewController.swift; sourceTree = "<group>"; };
 		DBDBBE1E2055C199008C3F13 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DBE501912056684E00A9E6D0 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		DBE5019320566A2B00A9E6D0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ED1AFD2D1E942B2500FD4B90 /* twitter_alamofire_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter_alamofire_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1AFD301E942B2500FD4B90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED1AFD351E942B2500FD4B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED1AFD371E942B2500FD4B90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED1AFD3A1E942B2500FD4B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED1AFD3C1E942B2500FD4B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,8 +156,8 @@
 		ED1AFD2F1E942B2500FD4B90 /* twitter_alamofire_demo */ = {
 			isa = PBXGroup;
 			children = (
-				ED1AFD341E942B2500FD4B90 /* Main.storyboard */,
 				ED1AFD391E942B2500FD4B90 /* LaunchScreen.storyboard */,
+				DBE5019320566A2B00A9E6D0 /* Main.storyboard */,
 				EDC4B7361E98627100D836AC /* twitter_alamofire_demo.entitlements */,
 				ED1D23501EF7650B00C51ACC /* API */,
 				ED1D23491EF6E38100C51ACC /* Models */,
@@ -202,6 +204,7 @@
 				ED1D234B1EF6E42900C51ACC /* TimelineViewController.swift */,
 				DBDBBE1E2055C199008C3F13 /* ProfileViewController.swift */,
 				DBBDDCE5205617730059C7CC /* DetailTweetViewController.swift */,
+				DBE501912056684E00A9E6D0 /* ComposeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -353,7 +356,7 @@
 				DB51F8D620492B65005F5F72 /* Keys.plist in Resources */,
 				ED1AFD3B1E942B2500FD4B90 /* LaunchScreen.storyboard in Resources */,
 				ED1AFD381E942B2500FD4B90 /* Assets.xcassets in Resources */,
-				ED1AFD361E942B2500FD4B90 /* Main.storyboard in Resources */,
+				DBE5019420566A2B00A9E6D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +544,7 @@
 				ED1D23481EF6E37700C51ACC /* Tweet.swift in Sources */,
 				ED1AFD611E94496E00FD4B90 /* LoginViewController.swift in Sources */,
 				ED1AFD5F1E94421000FD4B90 /* APIManager.swift in Sources */,
+				DBE501922056684E00A9E6D0 /* ComposeViewController.swift in Sources */,
 				ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */,
 				DBDBBE1F2055C199008C3F13 /* ProfileViewController.swift in Sources */,
 				ED1D234C1EF6E42900C51ACC /* TimelineViewController.swift in Sources */,
@@ -580,14 +584,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED1AFD341E942B2500FD4B90 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED1AFD351E942B2500FD4B90 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED1AFD391E942B2500FD4B90 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
