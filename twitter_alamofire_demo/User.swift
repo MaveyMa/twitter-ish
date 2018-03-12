@@ -14,24 +14,24 @@ class User {
   var screenName: String?
   var profilePicturePathString: String?
   private static var _current: User?
-  
+  var hasDefaultProfileImage: Bool
   var banner: String?
   var description: String?
   var numTweets: Int
   var numFollowing: Int
   var numFollowers: Int
   
-
+  
   
   // For user persistance
   var dictionary: [String: Any]?
-
+  
   init(dictionary: [String: Any]) {
     self.dictionary = dictionary
     name = dictionary["name"] as! String
     screenName = dictionary["screen_name"] as? String
     profilePicturePathString = dictionary["profile_image_url"] as? String
-    
+    hasDefaultProfileImage = dictionary["default_profile_image"] as! Bool
     banner = dictionary["profile_banner_url"] as? String
     description = dictionary["description"] as? String
     numTweets = dictionary["statuses_count"] as! Int
@@ -60,5 +60,18 @@ class User {
         defaults.removeObject(forKey: "currentUserData")
       }
     }
+  }
+  
+  func getClearProfilePicURLString() -> String {
+    let profileURLPart1 = String(describing: self.profilePicturePathString!.dropLast(11))
+    var profileURLPart2 = ""
+    
+    if self.hasDefaultProfileImage {
+      profileURLPart2 = ".png"
+    } else {
+      profileURLPart2 = ".jpg"
+    }
+    
+    return profileURLPart1 + profileURLPart2
   }
 }

@@ -37,7 +37,9 @@ class ProfileViewController: UIViewController {
   func setUpProfile() {
     backdropImageView.af_setImage(withURL: URL(string: user.banner!)!)
     profileImageView.layer.cornerRadius = profileImageView.frame.height/2
-    profileImageView.af_setImage(withURL: URL(string: user.profilePicturePathString!)!)
+    profileImageView.layer.borderWidth = 2
+    profileImageView.layer.borderColor = UIColor.white.cgColor
+    profileImageView.af_setImage(withURL: URL(string: user.getClearProfilePicURLString())!)
     
     authorLabel.text = user.name
     handleLabel.text = "@" + user.screenName!
@@ -53,5 +55,8 @@ class ProfileViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  @IBAction func didTapLogout(_ sender: Any) {
+    APIManager.shared.logout()
+  }
   
 }

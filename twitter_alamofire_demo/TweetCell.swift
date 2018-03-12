@@ -29,7 +29,8 @@ class TweetCell: UITableViewCell {
   var tweet: Tweet! {
     didSet {
       profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height/2
-      profilePicImageView.af_setImage(withURL: URL(string: tweet.user.profilePicturePathString!)!)
+      profilePicImageView.af_setImage(withURL: URL(string: tweet.user.getClearProfilePicURLString())!)
+      
       authorNameLabel.text = tweet.user.name
       twitterHandleLabel.text = "@" + tweet.user.screenName!
       timeStampLabel.text = " · " + tweet.createdAtString
@@ -57,7 +58,7 @@ class TweetCell: UITableViewCell {
       setSelectedFavoriteRedIcon()
     }
   }
-
+  
   @IBAction func didTapFavorite(_ sender: Any) {
     // Update the favorite icon and count in local tweet model
     tweet.favorited = !tweet.favorited!

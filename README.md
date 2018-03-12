@@ -77,7 +77,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
     limitations under the License.
 
 
-# Project 6 - *Name of App Here*
+# Project 6 - *Twitterish*
 
 Time spent: **X** hours spent in total
 
@@ -88,7 +88,7 @@ The following **required** stories are completed:
 - [ ] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
 - [ ] User can compose a new tweet by tapping on a compose button. (3pts)
 - [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
-- [ ] User can view their profile in a *profile tab* (3pts)
+- [x] User can view their profile in a *profile tab* (3pts)
 - Contains the user header view: picture and tagline
 - Contains a section with the users basic stats: # tweets, # following, # followers
 
@@ -105,7 +105,7 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Profile pictures are no longer blurry; they clearly display the default photo or user's profile picture in both twitter feed and profile.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -123,6 +123,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+* I learned that documentation is sometimes out of date -- printing the URL strings of the profile images showed they were .jpg files, while the documentation showed they're all .png files. Only the default profile image is a .png file. I simplified my code by making a function `getClearProfilePicURLString()` in my User model.
 
 ## License
 
