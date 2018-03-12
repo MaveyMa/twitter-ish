@@ -48,17 +48,21 @@ class Tweet {
     self.user = User(dictionary: user)
     
     // Format and set createdAtString
-    let createdAtOriginalString = dictionary["created_at"] as! String
+    createdAtString = dictionary["created_at"] as! String
+  }
+  
+  func getDate() -> String {
     let formatter = DateFormatter()
     // Configure the input format to parse the date string
     formatter.dateFormat = "E MMM d HH:mm:ss Z y"
     // Convert String to Date
-    let date = formatter.date(from: createdAtOriginalString)!
+    let date = formatter.date(from: createdAtString)!
     // Configure output format
     formatter.dateStyle = .short //Specifies a short style, such as “11/23/37”
     formatter.timeStyle = .none
     // Convert Date to String
     createdAtString = formatter.string(from: date)
+    return createdAtString
   }
   
   // Factory method that returns Tweets when initialized with an array of Tweet Dictionaries

@@ -28,7 +28,7 @@ class DetailTweetViewController: UIViewController {
       profPicImage.layer.cornerRadius = profPicImage.frame.height/2
       profPicImage.af_setImage(withURL: URL(string: tweet.user.getClearProfilePicURLString())!)
       authorLabel.text = tweet.user.name
-      handleLabel.text = tweet.user.screenName
+      handleLabel.text = "@" + tweet.user.screenName!
       tweetLabel.text = tweet.text
       timeLabel.text = tweet.createdAtString
       retweetCount.text = String(tweet.retweetCount)
