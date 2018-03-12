@@ -319,10 +319,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpG-a5-Qnj">
                                 <rect key="frame" x="173" y="455" width="30" height="30"/>
                                 <state key="normal" image="retweet-icon"/>
+                                <connections>
+                                    <action selector="didTapRetweet:" destination="cQp-vb-rwD" eventType="touchUpInside" id="ncc-M7-x46"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-i7-J8F">
                                 <rect key="frame" x="321" y="452" width="30" height="30"/>
                                 <state key="normal" image="favor-icon"/>
+                                <connections>
+                                    <action selector="didTapFavorite:" destination="cQp-vb-rwD" eventType="touchUpInside" id="Jrc-y1-5Og"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -372,9 +378,12 @@
                     <connections>
                         <outlet property="authorLabel" destination="LPi-fk-SWU" id="FXU-4F-CxA"/>
                         <outlet property="handleLabel" destination="JqW-8k-K5I" id="Hhr-XP-Doc"/>
+                        <outlet property="likeButton" destination="1HT-i7-J8F" id="kW2-n8-OMC"/>
                         <outlet property="likeCount" destination="oqY-yX-wOr" id="kjR-O9-CE4"/>
                         <outlet property="likeLabel" destination="HCv-yO-MK8" id="kOx-Zy-c0z"/>
                         <outlet property="profPicImage" destination="9gC-Ir-HHL" id="hRN-NB-VbD"/>
+                        <outlet property="replyButton" destination="k1g-A2-Tkg" id="hwQ-42-Ldg"/>
+                        <outlet property="retweetButton" destination="wpG-a5-Qnj" id="vFg-8Z-ojC"/>
                         <outlet property="retweetCount" destination="qN2-kr-6ub" id="gWp-qE-Iiw"/>
                         <outlet property="retweetLabel" destination="LY5-Rs-p5W" id="xia-Fd-nVu"/>
                         <outlet property="timeLabel" destination="tB1-P6-Nqe" id="t3h-Yf-P6c"/>
