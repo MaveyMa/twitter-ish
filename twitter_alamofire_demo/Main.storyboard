@@ -188,7 +188,7 @@
                                             <outlet property="timeStampLabel" destination="r83-y0-csP" id="MWX-f1-msi"/>
                                             <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="twitterHandleLabel" destination="sTt-Vh-dSa" id="fwI-j5-qxG"/>
-                                            <segue destination="cQp-vb-rwD" kind="show" id="hbw-31-cUR"/>
+                                            <segue destination="cQp-vb-rwD" kind="show" identifier="TweetDetailSegue" id="hbw-31-cUR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -512,7 +512,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z6n-v6-uDw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="rmT-8t-Esp"/>
+                    <navigationItem key="navigationItem" title="Profile" id="rmT-8t-Esp">
+                        <barButtonItem key="rightBarButtonItem" image="edit-icon" id="Tcl-Kq-Tqv">
+                            <connections>
+                                <segue destination="F6N-FU-JTT" kind="presentation" id="4mG-7F-uWB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="8Gq-IX-HuM" id="lPB-br-IQu"/>
                         <outlet property="backdropImageView" destination="fUJ-1O-bVz" id="95j-wg-2zu"/>
@@ -538,7 +544,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DYf-b1-Ttx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Compose" id="bHY-Zu-lDG"/>
+                    <navigationItem key="navigationItem" title="Compose" id="bHY-Zu-lDG">
+                        <barButtonItem key="leftBarButtonItem" image="close-icon" id="5bI-55-xjz">
+                            <connections>
+                                <action selector="onCancel:" destination="3ZO-YM-gSM" id="Nre-ob-yFF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="kue-Lt-ye0"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odH-YU-qP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -623,6 +636,7 @@
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>
         <image name="TwitterLogoBlue" width="200" height="200"/>
+        <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="home-icon" width="30" height="30"/>
@@ -630,4 +644,7 @@
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4mG-7F-uWB"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -79,7 +79,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 # Project 6 - *Twitterish*
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 

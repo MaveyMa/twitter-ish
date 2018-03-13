@@ -27,12 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Keep a look out for if user clicked "Logout"
     NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
       print("Logout notification received")
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-      self.window?.rootViewController = loginVC
+      self.changeViewTo(targetViewController: "LoginViewController")
+    }
+    
+    // Keep a look out for if user clicked "Cancel"
+    NotificationCenter.default.addObserver(forName: Notification.Name("didCancel"), object: nil, queue: OperationQueue.main) { (Notification) in
+      print("Cancel notification received")
+      self.changeViewTo(targetViewController: "AuthenticatedTabBarController")
     }
     
     return true
+  }
+  
+  func changeViewTo(targetViewController: String) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let targetVC = storyboard.instantiateViewController(withIdentifier: targetViewController)
+    self.window?.rootViewController = targetVC
   }
   
   // MARK: TODO: Open URL

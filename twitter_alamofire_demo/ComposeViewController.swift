@@ -21,4 +21,11 @@ class ComposeViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  
+  @IBAction func onCancel(_ sender: Any) {
+    //captionTextView.resignFirstResponder()
+    print("Clicked cancel")
+    NotificationCenter.default.post(name: NSNotification.Name("didCancel"), object: nil)
+  }
+  
 }
