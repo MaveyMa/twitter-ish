@@ -541,7 +541,38 @@
                     <view key="view" contentMode="scaleToFill" id="dtO-SK-y9d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EFM-me-cOL">
+                                <rect key="frame" x="8" y="80" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="6zd-MI-UtO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="TxH-dq-msN"/>
+                                    <constraint firstAttribute="width" constant="50" id="k4y-hi-kQU"/>
+                                    <constraint firstAttribute="height" constant="50" id="qFd-fJ-Bu9"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W91-JJ-7fi" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                <rect key="frame" x="66" y="80" width="301" height="301.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="What's happening?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DYf-b1-Ttx" firstAttribute="trailing" secondItem="W91-JJ-7fi" secondAttribute="trailing" constant="8" id="0mT-yr-yW9"/>
+                            <constraint firstItem="W91-JJ-7fi" firstAttribute="height" secondItem="DYf-b1-Ttx" secondAttribute="height" multiplier="1:2" id="NNW-oA-EGE"/>
+                            <constraint firstItem="EFM-me-cOL" firstAttribute="leading" secondItem="DYf-b1-Ttx" secondAttribute="leading" constant="8" id="XWx-5n-GLt"/>
+                            <constraint firstItem="W91-JJ-7fi" firstAttribute="leading" secondItem="EFM-me-cOL" secondAttribute="trailing" constant="8" id="ajB-P3-DT9"/>
+                            <constraint firstItem="W91-JJ-7fi" firstAttribute="top" secondItem="DYf-b1-Ttx" secondAttribute="top" constant="16" id="lbp-F3-V4d"/>
+                            <constraint firstItem="EFM-me-cOL" firstAttribute="top" secondItem="DYf-b1-Ttx" secondAttribute="top" constant="16" id="rjw-F2-3D9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DYf-b1-Ttx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="bHY-Zu-lDG">
@@ -550,12 +581,20 @@
                                 <action selector="onCancel:" destination="3ZO-YM-gSM" id="Nre-ob-yFF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="kue-Lt-ye0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="kue-Lt-ye0">
+                            <connections>
+                                <action selector="onTweet:" destination="3ZO-YM-gSM" id="pAw-aS-p1r"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileImageView" destination="EFM-me-cOL" id="Lfc-as-7mp"/>
+                        <outlet property="tweetBodyLabel" destination="W91-JJ-7fi" id="87a-OC-Dv3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odH-YU-qP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="3178"/>
+            <point key="canvasLocation" x="1648.8" y="3177.6611694152925"/>
         </scene>
         <!--Home-->
         <scene sceneID="WXZ-z8-8LI">
