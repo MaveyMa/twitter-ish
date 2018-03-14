@@ -128,6 +128,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 * I learned that documentation is sometimes out of date -- printing the URL strings of the profile images showed they were .jpg files, while the documentation showed they're all .png files. Only the default profile image is a .png file. I simplified my code by making a function `getClearProfilePicURLString()` in my User model.
+* https://hackmd.io/s/S1xb5UvEZ Need to spend more time on how protocols work? Although I got it working, not sure why.
 
 ## License
 
