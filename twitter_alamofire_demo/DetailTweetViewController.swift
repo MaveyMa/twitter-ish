@@ -36,17 +36,8 @@ class DetailTweetViewController: UIViewController {
       tweetLabel.text = tweet.text
       timeLabel.text = tweet.getDate() + ", " + tweet.getTime()
       retweetCount.text = String(tweet.retweetCount)
-      if tweet.retweetCount == 1 {
-        retweetLabel.text = "Retweet"
-      } else {
-        retweetLabel.text = "Retweets"
-      }
       likeCount.text = String(tweet.favoriteCount)
-      if tweet.favoriteCount == 1 {
-        likeLabel.text = "Like"
-      } else {
-        likeLabel.text = "Likes"
-      }
+      checkSingularOrPluralLabels()
     }
     
   }
@@ -106,9 +97,23 @@ class DetailTweetViewController: UIViewController {
     refreshTweetDetails()
   }
   
+  func checkSingularOrPluralLabels() {
+    if tweet.retweetCount == 1 {
+      retweetLabel.text = "Retweet"
+    } else {
+      retweetLabel.text = "Retweets"
+    }
+    if tweet.favoriteCount == 1 {
+      likeLabel.text = "Like"
+    } else {
+      likeLabel.text = "Likes"
+    }
+  }
+  
   func refreshTweetDetails() {
     likeCount.text = String(describing: tweet.favoriteCount)
     retweetCount.text = String(describing: tweet.retweetCount)
+    checkSingularOrPluralLabels()
   }
   
   //--------------------------------------------------------------------------------//
