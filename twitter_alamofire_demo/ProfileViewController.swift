@@ -23,15 +23,9 @@ class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    APIManager.shared.getCurrentAccount { (user, error) in
-      if let  error = error {
-        print("Error getting current account: \(error.localizedDescription)")
-      } else if let user = user {
-        print("Successfully got current account: \n\(String(describing: user.screenName))")
-        self.user = user
-        self.setUpProfile()
-      }
-    }
+    
+    user = User.current
+    setUpProfile()
   }
   
   func setUpProfile() {

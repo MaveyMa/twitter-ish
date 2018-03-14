@@ -563,11 +563,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqW-uy-c5g">
+                                <rect key="frame" x="17.5" y="138" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DYf-b1-Ttx" firstAttribute="trailing" secondItem="W91-JJ-7fi" secondAttribute="trailing" constant="8" id="0mT-yr-yW9"/>
+                            <constraint firstItem="OqW-uy-c5g" firstAttribute="top" secondItem="EFM-me-cOL" secondAttribute="bottom" constant="8" id="Igo-1E-hvI"/>
                             <constraint firstItem="W91-JJ-7fi" firstAttribute="height" secondItem="DYf-b1-Ttx" secondAttribute="height" multiplier="1:2" id="NNW-oA-EGE"/>
+                            <constraint firstItem="OqW-uy-c5g" firstAttribute="centerX" secondItem="EFM-me-cOL" secondAttribute="centerX" id="U55-O6-Z3c"/>
                             <constraint firstItem="EFM-me-cOL" firstAttribute="leading" secondItem="DYf-b1-Ttx" secondAttribute="leading" constant="8" id="XWx-5n-GLt"/>
                             <constraint firstItem="W91-JJ-7fi" firstAttribute="leading" secondItem="EFM-me-cOL" secondAttribute="trailing" constant="8" id="ajB-P3-DT9"/>
                             <constraint firstItem="W91-JJ-7fi" firstAttribute="top" secondItem="DYf-b1-Ttx" secondAttribute="top" constant="16" id="lbp-F3-V4d"/>
@@ -588,6 +596,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charCountLabel" destination="OqW-uy-c5g" id="soF-8M-esc"/>
                         <outlet property="profileImageView" destination="EFM-me-cOL" id="Lfc-as-7mp"/>
                         <outlet property="tweetBodyLabel" destination="W91-JJ-7fi" id="87a-OC-Dv3"/>
                     </connections>
